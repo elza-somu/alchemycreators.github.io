@@ -31,6 +31,25 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Contact form saving -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        function SubForm() {
+            $.ajax({
+                url: "https://api.apispreadsheets.com/data/XKhPfC9FS62A4k25/",
+                type: "post",
+                data: $("#myForm").serializeArray(),
+                success: function () {
+                    alert("Form Data Submitted :)")
+                },
+                error: function () {
+                    alert("There was an error :(")
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -81,20 +100,21 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                         <div class="dropdown-menu m-0">
-                            <a href="" class="dropdown-item">Spa</a>
+                            <a href="" class="dropdown-item">Weddings</a>
                             <a href="" class="dropdown-item">Special Occasions</a>
+                            <a href="" class="dropdown-item">House Warming</a>
+                            <a href="" class="dropdown-item">Closing Gifts</a>
+                            <a href="" class="dropdown-item">Spa</a>
+                            <a href="" class="dropdown-item">Newborn/Baptism</a>
+                            <a href="" class="dropdown-item">Seasonal</a>
+                            <a href="" class="dropdown-item">Bereavement</a>
                             <a href="" class="dropdown-item">Corporate</a>
                         </div>
                     </div>
                     <a href="gallery.html" class="nav-item nav-link">Gallery</a>
                     <a href="#" class="nav-item nav-link">Contact</a>
                 </div>
-                <div class=" d-none d-lg-flex">
-                    <div class="flex-shrink-0 btn-lg-square border border-light rounded-circle">
-                        <i class="fa fa-phone text-primary"></i>
-                    </div>
 
-                </div>
             </div>
     </nav>
     <!-- Navbar End -->
@@ -125,38 +145,41 @@
             </div>
             <div class="row g-0 justify-content-center">
                 <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="text-center mb-4">The contact form is currently inactive. Get a functional and working
-                        contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code
-                        and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+
                     <form>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input name="full_name, line 29" type="text" class="form-control" id="name"
+                                        placeholder="Your Name">
                                     <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input name="email, line 33" type="email" class="form-control" id="email"
+                                        placeholder="Your Email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
+                            <!--
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="subject" placeholder="Subject">
                                     <label for="subject">Subject</label>
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message"
+                                    <textarea name="message, line 42" class="form-control"
+                                        placeholder="Leave a message here" id="message"
                                         style="height: 200px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
-                                <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send
+                                <button class=" btn btn-primary rounded-pill py-3 px-5 onclick=" SubForm()"
+                                    type="submit">Send
                                     Message</button>
                             </div>
                         </div>
